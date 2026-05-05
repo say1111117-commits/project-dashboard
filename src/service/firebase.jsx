@@ -7,13 +7,22 @@ import { getFirestore } from "firebase/firestore"; // import ang Firestore
 
 // Configuration ng Firebase project mo
 // Galing ito sa Firebase Console (Project Settings)
+// const firebaseConfig = {
+//   apiKey: "AIzaSyB8FtSo_QsuP_HWWmoRei8vDGhB_S7mc7w", // unique key para ma-access ang project
+//   authDomain: "my-login-app-a2f2d.firebaseapp.com", // domain para sa authentication (login, signup)
+//   projectId: "my-login-app-a2f2d", // ID ng project mo sa Firebase
+//   storageBucket: "my-login-app-a2f2d.firebasestorage.app", // storage para sa files (images, etc.)
+//   messagingSenderId: "399822972540", // ginagamit sa push notifications (Firebase Cloud Messaging)
+//   appId: "1:399822972540:web:09fe08d1c1e101a4530bf9" // unique identifier ng app mo
+// };
+
 const firebaseConfig = {
-  apiKey: "AIzaSyB8FtSo_QsuP_HWWmoRei8vDGhB_S7mc7w", // unique key para ma-access ang project
-  authDomain: "my-login-app-a2f2d.firebaseapp.com", // domain para sa authentication (login, signup)
-  projectId: "my-login-app-a2f2d", // ID ng project mo sa Firebase
-  storageBucket: "my-login-app-a2f2d.firebasestorage.app", // storage para sa files (images, etc.)
-  messagingSenderId: "399822972540", // ginagamit sa push notifications (Firebase Cloud Messaging)
-  appId: "1:399822972540:web:09fe08d1c1e101a4530bf9" // unique identifier ng app mo
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID
 };
 
 // Dito ini-initialize ang Firebase app gamit ang config
