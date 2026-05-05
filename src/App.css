@@ -1,0 +1,7 @@
+/* this is App.css */
+body{
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle at top right, #2d3038, #1a1c20);
+  color:rgb(207, 214, 219); /* text at border */
+}

@@ -1,0 +1,10 @@
+.dashboardArea{ 
+  display: flex; /* make sidebar + container side by side */
+  height: 100vh; /* full screen height */
+}
+.headContentContainer{
+  display: flex;
+  flex: 1; /* para mahati ng tama ung height and width sa screen */
+  flex-direction: column; /* naka column yung head at content */
+  height: 100%;
+}

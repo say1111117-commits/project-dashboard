@@ -1,0 +1,138 @@
+.thisSidebar {
+  width: 260px;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s ease;
+  overflow: hidden;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.collapsed {
+  width: 80px;
+}
+
+.btnExpandContainer {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 0;
+  border-bottom: 1px solid rgba(78, 72, 72, 0.658);
+
+}
+
+.btnExpandContainer button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+.btnExpandContainer button img{
+  height: 50px;
+  width: 50px;
+}
+
+.profileImgContainer{
+  padding-top: 10px;
+  height: 100px;
+  text-align: center;
+}
+.profileImgContainer img{
+  height: 100%;
+
+  /* Transition para smooth kapag nag-hover */
+  transition: all 0.3s ease-in-out;
+  filter: drop-shadow(0 0 10px rgba(0, 200, 255, 0.8)) 
+          drop-shadow(0 0 25px rgba(0, 150, 255, 0.4));
+  
+  cursor: pointer;
+}
+.profileImgContainer img:hover{
+  transform: scale(1.1) rotate(5deg);
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.9)) 
+          drop-shadow(0 0 35px rgba(0, 200, 255, 0.6));
+}
+
+.infoContainer {
+  padding: 20px;
+  text-align: center;
+  border-bottom: 1px solid rgba(78, 72, 72, 0.658);
+}
+
+.infoContainer span {
+  display: block;
+  font-size: 0.85rem;
+  color: #a0a4ab;
+}
+
+/* Buttons Container */
+.btnContainer {
+  padding: 10px 15px;
+}
+
+.homeBtn, .aboutBtn, .logoutContainer button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  background-color: transparent;
+  border: none;
+  color: #adb5bd;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+
+.homeBtn img, .aboutBtn img, .logoutContainer img {
+  width: 20px;
+  margin-right: 15px;
+  filter: brightness(0) invert(1);
+}
+
+.active {
+  background-color: #343a40 !important;
+  color: #ffffff !important;
+}
+
+.readMe {
+  padding: 10px 30px; 
+  flex-grow: 1;
+}
+
+.readMe h5 {
+  color: #ffffff;
+  font-size: 0.8rem;
+  margin-bottom: 8px;
+}
+
+.readMeContent {
+  font-size: 0.8rem;
+  color: #adb5bd;
+  line-height: 1.4;
+}
+
+.logoutContainer {
+  padding: 15px;
+  border-top: 1px solid rgba(78, 72, 72, 0.658);
+  margin-top: auto; 
+}
+
+/* pag naka-collapse, tago ang mga labels at readme */
+.collapsed .profileImgContainer img,
+.collapsed .navigationLabel,
+.collapsed .label,
+.collapsed .readMe,
+.collapsed .infoContainer span,
+.collapsed h4 {
+  display: none;
+}
+
+.collapsed .homeBtn, .collapsed .aboutBtn, .collapsed .logoutContainer button {
+  justify-content: center;
+}
+
+.collapsed img {
+  margin-right: 0 !important;
+}

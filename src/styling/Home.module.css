@@ -1,0 +1,477 @@
+.homeContainer{
+  display: flex;
+  flex: 1;
+  gap: 10px;
+  height: 100%; /* ensure kinukuha ang buong height ng ContentArea */
+  align-items: stretch; /* ito ang magpapantay sa height nilang dalawa */
+  min-height: 0; /* para gumana ang overflow scroll ng table */
+}
+.homeContainer input:focus,
+.homeContainer select:focus{
+  border-color: #c2a373;
+}
+
+.userDataContainer{ /* 1st half div */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 450px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+}
+
+/* Kapag ang input ay naka-readonly */
+.userData input:read-only {
+    color: #b7c0d1; 
+    cursor: not-allowed;
+}
+
+/* if selected disabled */
+.userData select:disabled {
+    color: #888888;
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+}
+
+.emailPasswordText{
+  color: #ff4d4d;
+}
+/* ------------------- status/ loading/ message/ error ------------ */
+/* Container ng status */
+.statusArea {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* Base style para sa mga badges */
+.statusBadge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  animation: fadeIn 0.3s ease-out;
+  width: 100%;
+  justify-content: center;
+}
+
+/* Specific Colors */
+.loadingBadge {
+  background: rgba(194, 163, 115, 0.15);
+  color: #c2a373;
+  border: 1px solid rgba(194, 163, 115, 0.3);
+}
+
+.errorBadge {
+  background: rgba(255, 77, 77, 0.15);
+  color: #ff4d4d;
+  border: 1px solid rgba(255, 77, 77, 0.3);
+}
+
+.successBadge {
+  background: rgba(76, 175, 80, 0.15);
+  color: #4caf50;
+  border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+/* spinner loading */
+.spinner {
+  height: 18px;
+  width: 18px;
+  border: 2px solid rgba(194, 163, 115, 0.2);
+  border-top: 2px solid #c2a373;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.icon {
+  font-size: 1rem;
+}
+
+/* animation */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* -------------------------------------------------------------- */
+.headArea{
+  text-align: center;
+}
+.headArea span{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+.searchContainer{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: 10px;
+}
+.searchText{
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+.searchContainer input{
+  width: 100%;
+  padding: 10px 13px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: white;
+  outline: none;
+  transition: border 0.3s ease;
+  box-sizing: border-box;
+}
+
+.resultsText{
+  align-self: flex-end;
+  margin-top: 3px;
+  font-size: 0.9rem;
+  font-weight: bolder;
+}
+
+.userData{
+  display: flex;
+  flex-direction: column;
+
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: 10px;
+}
+.userData span{
+  font-size: 0.9rem; 
+}
+.userData span:not(:first-child){
+  padding-top: 5px;
+}
+.userData input{
+  width: 100%;
+  padding: 10px 10px;
+  margin-top: 8px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: white;
+  outline: none;
+  transition: border 0.3s ease;
+  box-sizing: border-box;
+
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.checkboxContainer {
+  display: flex; 
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;  /* gap ng box at text */
+  margin-top: 5px; /* adjust para mas malapit sa password input */
+  cursor: pointer;
+  user-select: none;
+}
+.checkboxContainer input[type="checkbox"] {
+  width: 18px;   
+  height: 18px;
+  margin: 0; 
+  cursor: pointer;
+  accent-color: #c2a373;
+  cursor: pointer;
+}
+.checkboxContainer label {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.85rem;
+  color: #bbb;
+  cursor: pointer;
+}
+
+.userData select{
+  margin-top: 8px;
+  padding: 10px 10px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: white;
+  outline: none;
+  transition: border 0.3s ease;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.actionBtnscontainer{
+  /* border: 1px solid; */
+  margin-top: 10px;
+  padding-top: 5px;
+  border-top: 1px solid rgba(255, 255, 255, 0.185);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 5px;
+}
+.addSavebtn{ /* add edit save btn container */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+  padding-bottom: 5px;
+}
+.addBtn,
+.saveBtn,
+.editBtn{
+  width: 100px;
+  margin-top: 5px;
+  padding: 12px;
+  background-color: #c2a373; 
+  border: none;
+  border-radius: 10px;
+  color: #1a1c20;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.1s ease;
+}
+.clearAllBtn{
+  width: 310px;
+  margin-top: 5px;
+  padding: 12px;
+  background-color: #c2a373; 
+  border: none;
+  border-radius: 10px;
+  color: #1a1c20;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.1s ease;
+}
+.addBtn:hover,
+.saveBtn:hover,
+.editBtn:hover,
+.clearAllBtn:hover{
+  background-color: #d4b88a;
+  color: #1a1c20;
+}
+.addBtn:active,
+.saveBtn:active,
+.editBtn:active,
+.clearAllBtn:active{
+  transform: scale(0.98);
+}
+/* disabled add, save & edit btn */
+.addBtn:disabled,
+.saveBtn:disabled,
+.editBtn:disabled{ 
+  background-color: #1a1c20;
+  border: none;
+  color: #c2a373;
+  box-shadow: inset 0 0 0 2px #c2a373;
+  cursor: not-allowed;
+}
+
+/* ------------------------- table area ---------------------- */
+.tableContainer{ /* 2nd half div */
+  flex: 1;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: auto; /* scrollable table pag maraming data */
+  min-width: 0; /* iwas overflow */
+  display: flex;
+  flex-direction: column;
+  
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(15px);
+  border-radius: 8px;
+  padding: 5px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.myTable{
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+}
+
+/* ----------------------------------------------------- */
+
+.rowData {
+  transition: all 0.3s ease;
+  border-left: 5px solid transparent; /* placeholder para di gumalaw ang text pag nag-highlight */
+}
+
+.highlightedRow {
+  /* Border Highlight */
+  
+  /* Pop Effect gamit ang Box Shadow */
+  /* Lalabas na parang umaangat yung row at may glow sa paligid */
+  box-shadow: 0 0 10px #d4b88a; 
+  
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.829);
+}
+
+.highlightedRow td:first-child {
+  border-left: 5px solid #d4b88a;
+}
+
+.highlightedRow td:last-child {
+  border-right: 5px solid #d4b88a;
+}
+
+/* ---------------------------------------------------- */
+
+.rowHead th,
+.rowData td{
+  border: 1px solid rgba(255, 255, 255, 0.185);
+}
+.rowHead th{
+  font-size: larger;
+}
+.rowData td{
+  text-align: center;
+}
+.rowHead th:first-child{
+  border-top-left-radius: 8px;
+}
+.rowHead th:last-child{
+  border-top-right-radius: 8px;
+}
+
+.actionBtnContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  gap: 5px;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: none;
+}
+.viewBtn,
+.deleteBtn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid #c2a373;
+  color: #f5f5f5;
+  background: transparent;
+  border-radius: 5px;
+}
+.viewBtn img,
+.deleteBtn img{
+  width: 20px;
+  height: 20px;
+}
+
+.viewBtn:hover:not(:disabled) {
+  transform: translateY(-1px); /* Bahagyang aangat */
+}
+
+.deleteBtn:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+.viewBtn:active:not(:disabled), 
+.deleteBtn:active:not(:disabled) {
+  transform: translateY(1px) scale(0.95); /* lulubog liliit ng konti */
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ------------------- delete modal/ prompt -------------------------- */
+/* modal overlay - para mag-dim ang background */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+/* modal box */
+.modalContent {
+  background: #1a1c20;
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid #c2a373; /* border ng modal */
+  text-align: center;
+  width: 400px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.modalContent h3 {
+  color: #c2a373;
+  margin-top: 0;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* Modal Buttons */
+.confirmBtn, .cancelBtn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+.confirmBtn {
+  background: #ff4d4d;
+  color: white;
+}
+
+.confirmBtn:hover {
+  background: #ff3333;
+}
+
+.cancelBtn {
+  background: #444;
+  color: white;
+}
+
+.cancelBtn:hover {
+  background: #555;
+}

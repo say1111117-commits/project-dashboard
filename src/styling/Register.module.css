@@ -1,0 +1,220 @@
+.registerPage{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* ensure center ang loginContainer ko*/
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.registerContainer{
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 10px 40px 40px 40px; 
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  text-align: center;
+  color: #ffffff;
+}
+
+.registerContainer h4 {
+  font-size: 1.8rem;
+  margin: 0; 
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: #ffffff;
+}
+/* subtitle (Create your account...) */
+.registerContainer h6 {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #bbb;
+  margin: 5px 0 20px 0; 
+  line-height: 1.4;
+}
+
+.registerForm{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.registerForm span{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+.registerForm input[type='text'],
+.registerForm input[type='email'],
+.registerForm input[type='password'] {
+  width: 100%;
+  padding: 12px 15px;
+  margin-top: 8px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  color: white;
+  outline: none;
+  transition: border 0.3s ease;
+  box-sizing: border-box;
+}
+.registerForm input:focus{
+  border-color: #c2a373; 
+}
+
+/* checkbox label */
+.checkboxContainer {
+  display: flex; 
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Styling para sa mismong checkbox */
+.checkboxContainer input[type="checkbox"] {
+  width: 18px;   
+  height: 18px;
+  margin: 0; 
+  cursor: pointer;
+  accent-color: #c2a373;
+  cursor: pointer;
+}
+
+/* Styling para sa text na "Show password" */
+.checkboxContainer label {
+  font-size: 0.85rem;
+  color: #bbb;
+  cursor: pointer;
+}
+
+.registerForm button[type='submit']{
+  margin-top: 10px;
+  padding: 14px;
+  background-color: #c2a373; 
+  border: none;
+  border-radius: 10px;
+  color: #1a1c20;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.1s ease;
+}
+.registerForm button[type="submit"]:hover {
+  background-color: #d4b88a;
+}
+.registerForm button[type="submit"]:active {
+  transform: scale(0.98);
+}
+.backBtn{
+  margin-top: 10px;
+  padding: 14px;
+  background-color: transparent;
+  border: 2px solid #c2a373;
+  color: #c2a373;
+  border-radius: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.1s ease;
+}
+.backBtn:hover{
+  background-color: #d4b88a;
+  color: #1a1c20;
+}
+.backBtn:active{
+  transform: scale(0.98);
+}
+
+/* --- ANIMATIONS & STATUS ELEMENTS --- */
+
+.statusArea {
+  height: 50px; 
+  display: flex;
+  flex-direction: column;  
+  justify-content: center;
+  align-items: center; 
+  margin-bottom: 5px;  
+}
+
+/* --- Loading Style --- */
+
+/* wrapper para sa spinner at yung "Setting up account" text */
+.loadingOverlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;               
+}
+
+/* styling para sa "Loading..." na text */
+.loadingOverlay p {
+  font-size: 0.85rem;
+  color: #c2a373;     
+  margin: 0;     
+}
+
+/* loading circle animation */
+.spinner { 
+  width: 28px;
+  height: 28px;
+  border: 3px solid rgba(255, 255, 255, 0.1); 
+  border-top: 3px solid #c2a373;              
+  border-radius: 50%;                 
+  animation: spin 1s linear infinite; 
+}
+
+/* Logic ng pag-ikot: mula 0 degrees hanggang 360 degrees */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* --- Error Style --- */
+
+.errorMessage {
+  color: #ff6b6b;                             
+  background: rgba(255, 107, 107, 0.1);  
+  border: 1px solid rgba(255, 107, 107, 0.2);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 0.8rem;
+  width: 100%;                             
+  text-align: center;
+  margin: 0;
+  box-sizing: border-box;                  
+}
+
+/* --- Success Style --- */
+.successMessage {
+  color: #4ade80;                            
+  background: rgba(74, 222, 128, 0.1);   
+  border: 1px solid rgba(74, 222, 128, 0.2);
+  border-radius: 8px;
+  padding: 10px 15px;
+  font-size: 0.85rem;
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* --- button inside success  --- */
+.inlineBtn {
+  background: none;        
+  border: none;  
+  color: #4facfe;   
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0 4px; 
+}
+
+.inlineBtn:hover {
+  color: #ffffff;
+}

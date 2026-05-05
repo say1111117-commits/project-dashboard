@@ -1,0 +1,6 @@
+.contentContainer{
+  flex: 1;
+  display: flex;
+  min-height: 0; /* iwas overflow */
+  padding: 10px; /* gap ng border ng contentContainer at contentBox */
+}
